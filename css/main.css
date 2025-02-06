@@ -669,3 +669,38 @@ h5 {
     top: 0;
   }
 }
+
+.project-details {
+  display: none;  /* Initially hidden */
+  padding: 20px;
+  background-color: #f0f0f0; /* Or any background color you like */
+  border-top: 1px solid #ccc; /* Optional: Add a border */
+  margin-top: 10px; /* Space between the image and details */
+}
+
+.project-details.active { /* Class added by JavaScript */
+  display: block; /* Show when active */
+}
+
+.project-box {
+position: relative; /* Ensure project-details is positioned relative to the box */
+}
+.close-details-btn {
+  background-color: #3498db; /* Example button style */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.close-details-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Adjust layout for smaller screens (optional, in media.css) */
+@media (max-width: 768px) {
+  .project-box {
+      width: 100%; /* Make project boxes full-width on smaller screens */
+  }
+}
