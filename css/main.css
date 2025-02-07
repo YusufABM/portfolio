@@ -379,19 +379,51 @@ h5 {
 
 .projects-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .project-box {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  max-width: 510px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-box:nth-child(odd) {
+  align-self: flex-start;
+}
+
+.project-box:nth-child(even) {
+  align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+  .project-box:nth-child(odd),
+  .project-box:nth-child(even) {
+    align-self: center;
+  }
 }
 
 .project-box a {
   display: inline-block;
+}
+
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.4s ease-in-out;
+  opacity: 0;
+  background: #f8f8f8;
+  padding: 0 15px;
+  border-radius: 8px;
+  margin-top: 0px;
+  max-width: 400px;
+}
+
+.project-details.active {
+  max-height: 400px; /* Adjust for content */
+  opacity: 1;
+  padding: 15px;
 }
 
 .project-box:hover .project-mask {
@@ -410,6 +442,15 @@ h5 {
   width: 100%;
 }
 
+.project-box.no-hover:hover .project-mask {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.project-box.no-hover:hover .project-img {
+  transform: scale(1);
+}
+
 .project-img {
   transform: scale(1);
   width: 100%;
@@ -417,16 +458,15 @@ h5 {
 }
 
 .project-mask {
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
-  height: 100%;
-  position: absolute;
-  transition: all 0.5s ease-in-out 0s;
-  width: 100%;
+  position: absolute; /* Position relative to .project-box */
   top: 0;
   left: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow: hidden;
+  width: 100%; /* Cover the entire width of .project-box */
+  height: 100%; /* Cover the entire height of .project-box */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+  transition: all 0.5s ease-in-out; /* Smooth transition */
 }
 
 .project-mask p {
