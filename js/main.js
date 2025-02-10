@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Smoothly scroll to the expanded details section
       if (details.classList.contains('active')) {
         setTimeout(() => {
-          projectBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100); // Small delay to let the element become visible
+          projectBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
       }
     });
   });

@@ -118,12 +118,34 @@ body {
   background-color: #3c4446;
 }
 
+li, p {
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
 h5 {
   font-size: 15px;
   letter-spacing: 2px;
   line-height: 23px;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #001bc9;
 }
 
 .white {
@@ -234,14 +256,18 @@ h5 {
 
 .hero-img {
   display: flex;
-  flex: 1 1 356px;
+  flex: 1 1 100px;
   justify-content: flex-end;
   margin-top: auto;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .hero-img img {
   display: block;
   position: relative;
+  width: 100%;
+  height: auto;
 }
 
 .about-social-list {
@@ -260,6 +286,13 @@ h5 {
     height: 24px;
     width: 24px;
   }
+}
+
+.social-links-row.t  {
+  display: right;
+  justify-content: right;
+  align-items: right;
+  margin: 0px 0 0px;
 }
 
 .social-links-row a {
@@ -413,15 +446,15 @@ h5 {
   overflow: hidden;
   transition: max-height 0.4s ease-out, opacity 0.4s ease-in-out;
   opacity: 0;
-  background: #f8f8f8;
+  background: #757070;
   padding: 0 15px;
   border-radius: 8px;
   margin-top: 0px;
-  max-width: 400px;
+  max-width: 800px;
 }
 
 .project-details.active {
-  max-height: 400px; /* Adjust for content */
+  max-height: 1000px; /* Adjust for content */
   opacity: 1;
   padding: 15px;
 }
@@ -713,8 +746,8 @@ h5 {
 .project-details {
   display: none;  /* Initially hidden */
   padding: 20px;
-  background-color: #f0f0f0; /* Or any background color you like */
-  border-top: 1px solid #ccc; /* Optional: Add a border */
+  background-color: #ffffff00; /* Or any background color you like */
+  /*border-top: 1px solid #000000; /* Optional: Add a border */
   margin-top: 10px; /* Space between the image and details */
 }
 
@@ -726,7 +759,7 @@ h5 {
 position: relative; /* Ensure project-details is positioned relative to the box */
 }
 .close-details-btn {
-  background-color: #3498db; /* Example button style */
+  background-color: #000000; /* Example button style */
   color: white;
   padding: 8px 12px;
   border: none;
@@ -735,7 +768,7 @@ position: relative; /* Ensure project-details is positioned relative to the box 
 }
 
 .close-details-btn:hover {
-  background-color: #2980b9;
+  background-color: #c6c6c6;
 }
 
 /* Adjust layout for smaller screens (optional, in media.css) */
