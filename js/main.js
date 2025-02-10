@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("#nav");
   const navBtn = document.querySelector("#nav-btn");
   const navBtnImg = document.querySelector("#nav-btn-img");
+  const navLinks = document.querySelectorAll("#nav a");
 
   //Hamburger menu
   navBtn.onclick = () => {
@@ -19,6 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
       navBtnImg.src = "img/icons/open.svg";
     }
   };
+
+  // Close nav when a link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        navBtnImg.src = "img/icons/open.svg";
+      }
+    });
+  });
 
   function debounce(func, wait = 20, immediate = true) {
     let timeout;
@@ -52,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }));
-});
 
   // Project details toggle functionality
   const projectLinks = document.querySelectorAll('.project-link');
@@ -98,3 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
       projectBox.classList.remove('no-hover'); // Re-enable hover effects
     });
   });
+});
