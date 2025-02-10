@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   projectLinks.forEach(link => {
     link.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent the default link behavior
+      event.preventDefault();
 
       const projectBox = link.closest('.project-box'); // Find the parent .project-box
       const details = projectBox.querySelector('.project-details');
@@ -72,13 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll('.project-details.active').forEach(otherDetails => {
         if (otherDetails !== details) {
           otherDetails.classList.remove('active');
-          otherDetails.closest('.project-box').classList.remove('no-hover'); // Re-enable hover for other boxes
+          otherDetails.closest('.project-box').classList.remove('no-hover');
         }
       });
 
       // Toggle the 'active' class on the clicked project's details
       details.classList.toggle('active');
-      projectBox.classList.toggle('no-hover'); // Toggle the 'no-hover' class
+      projectBox.classList.toggle('no-hover');
 
       // Smoothly scroll to the expanded details section
       if (details.classList.contains('active')) {
