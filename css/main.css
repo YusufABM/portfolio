@@ -260,6 +260,7 @@ h6 {
   justify-content: flex-end;
   margin-top: auto;
   margin-right: 50px;
+  margin-left: 50px;
   border-radius: 50%;
   overflow: hidden;
 }
