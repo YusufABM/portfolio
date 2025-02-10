@@ -1,12 +1,10 @@
 "use strict";
-import form from "./form.js";
 import skillbar from "./skillbar.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
     once: true,
   });
-  form();
   skillbar();
 
   const nav = document.querySelector("#nav");
@@ -22,24 +20,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.addEventListener("scroll", function () {
-    const header = document.querySelector("#header");
-    const hero = document.querySelector("#home");
-    let triggerHeight = hero.offsetHeight - 170;
+  function debounce(func, wait = 20, immediate = true) {
+    let timeout;
+    return function() {
+      let context = this, args = arguments;
+      let later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      let callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
 
-    if (window.scrollY > triggerHeight) {
-      header.classList.add("header-sticky");
-      goToTop.classList.add("reveal");
-    } else {
-      header.classList.remove("header-sticky");
-      goToTop.classList.remove("reveal");
-    }
-  });
-
-  let sections = document.querySelectorAll("section");
-  let navLinks = document.querySelectorAll("header nav a");
-
-  window.onscroll = () => {
+  window.addEventListener('scroll', debounce(() => {
     sections.forEach((sec) => {
       let top = window.scrollY;
       let offset = sec.offsetTop - 170;
@@ -50,12 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.forEach((links) => {
           links.classList.remove("active");
           document
-            .querySelector("header nav a[href*=" + id + "]")
+            .querySelector(`header nav a[href*="${id}"]`)
             .classList.add("active");
         });
       }
     });
-  };
+  }));
 });
 
   // Project details toggle functionality
@@ -66,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
 
       const projectBox = link.closest('.project-box'); // Find the parent .project-box
+      if (!projectBox) return; // Add null check
       const details = projectBox.querySelector('.project-details');
 
       // Close any other open details sections
@@ -93,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeButtons = document.querySelectorAll('.close-details-btn');
   closeButtons.forEach(button => {
     button.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent any default button behavior
       const details = this.closest('.project-details');
+      if (!details) return;
       const projectBox = details.closest('.project-box');
 
       details.classList.remove('active');
