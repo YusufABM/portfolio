@@ -418,7 +418,16 @@ h6 {
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-/* skills tables */
+.skills-table td:first-child {
+  font-weight: 700;
+  color: var(--primary-accent);
+}
+
+.skills-table td:first-child:hover {
+  color: var(--secondary-accent);
+  transition: color 0.3s ease-in-out;
+}
+
 .skills .about-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

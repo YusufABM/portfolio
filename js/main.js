@@ -1,5 +1,4 @@
 "use strict";
-import skillbar from "./skillbar.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
