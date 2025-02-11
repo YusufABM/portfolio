@@ -510,7 +510,7 @@ h3, td {
 }
 
 .project-details.active {
-  max-height: 2000px; /* Adjust for content */
+  max-height: 4000px; /* Adjust for content */
   opacity: 1;
   padding: 15px;
 }
