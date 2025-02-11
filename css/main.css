@@ -494,13 +494,7 @@ h6 {
   margin: 0 auto;
 }
 
-.project-box:nth-child(odd) {
-  align-self: flex-start;
-}
 
-.project-box:nth-child(even) {
-  align-self: flex-end;
-}
 
 .project-box a {
   display: inline-block;
